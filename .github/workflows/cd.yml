@@ -3,11 +3,11 @@ name: Deployment
 on:
   workflow_dispatch:
     inputs:
-      type:
+      mode:
         type: choice
-        description: choose deployment type
+        description: choose deployment mode
         options:
-          - all
+          - all - deploy web, api, mediasoup, recording
           - web only
           - api only
           - mediasoup only
@@ -39,4 +39,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: logging
-      run: echo "hello world"
+      run: echo "Deploying ${{ github.event.inputs.mode }} mode"
