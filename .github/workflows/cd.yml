@@ -32,3 +32,8 @@ on:
       seed:
         type: boolean
         description: run seed
+
+jobs:
+  deploy:
+    name: deployment
+    runs-on: ubuntu-latest
