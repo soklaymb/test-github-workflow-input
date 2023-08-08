@@ -7,31 +7,19 @@ on:
         type: choice
         description: choose deployment mode
         options:
-          - all - deploy web, api, mediasoup, recording
-          - web only
+          - all (web,api,mediasoup,recording)
+          - minimal (web,api)
+          - backend (api,mediasoup,recording)
+          - backend-media (api,mediasoup)
+          - backend-recording (api,recording)
+          - frontend only (web only)
           - api only
           - mediasoup only
           - recording only
-        
-      web:
-        type: boolean
-        description: web
-      api:
-        type: boolean
-        description: api
-      mediasoup:
-        type: boolean
-        description: mediasoup
-      recording:
-        type: boolean
-        description: recording
 
       migrate:
         type: boolean
         description: run migration
-      seed:
-        type: boolean
-        description: run seed
 
 jobs:
   deploy:
@@ -39,4 +27,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: logging
-      run: echo "Deploying ${{ github.event.inputs.mode }} mode"
+      run: echo "Deploying ${{ github.event.inputs.mode }} mode ${{ github.event.inputs.migrate?'with migration':'' }}"
