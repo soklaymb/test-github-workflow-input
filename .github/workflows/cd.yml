@@ -37,3 +37,6 @@ jobs:
   deploy:
     name: deployment
     runs-on: ubuntu-latest
+    steps:
+    - name: logging
+      run: echo "hello world"
