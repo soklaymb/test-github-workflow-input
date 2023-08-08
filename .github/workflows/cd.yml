@@ -5,7 +5,9 @@ on:
     inputs:
       mode:
         type: choice
-        description: choose deployment mode
+        description: Deployment mode
+        required: true
+        default: 'all'
         options:
           - all (web,api,mediasoup,recording)
           - minimal (web,api)
