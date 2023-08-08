@@ -3,16 +3,22 @@ name: Deployment
 on:
   workflow_dispatch:
     inputs:
-      name:
-        type: choice
-        description: Who to greet
-        options: 
-        - monalisa
-        - cschleiden
-      message:
-        required: true
-      use-emoji:
+      web:
         type: boolean
-        description: Include  emojis
-      environment:
-        type: environment
+        description: web
+      api:
+        type: boolean
+        description: api
+      mediasoup:
+        type: boolean
+        description: mediasoup
+      recording:
+        type: boolean
+        description: recording
+
+      migrate:
+        type: boolean
+        description: run migration
+      seed:
+        type: boolean
+        description: run seed
